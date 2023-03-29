@@ -1,0 +1,14 @@
+{
+  "contacts": [
+    {
+      "name": "Rosie Simpson",
+      "number": "+375 12 459-12-56",
+      "id": "1"
+    },
+    {
+      "name": "Hermione Kline",
+      "number": "+375 12 443-89-12",
+      "id": "2"
+    }
+  ]
+}
