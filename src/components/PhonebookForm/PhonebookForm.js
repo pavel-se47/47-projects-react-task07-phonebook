@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import operations from 'redux/phonebook-operations';
 import styles from './PhonebookForm.module.css';
 import { ThreeDots } from 'react-loader-spinner';
+import phonebookSelectors from 'redux/phonebook-selectors';
 
 class PhonebookForm extends Component {
   state = {
@@ -104,8 +105,8 @@ class PhonebookForm extends Component {
 }
 
 const mapStateToProps = state => ({
-  contacts: state.contacts.items,
-  isLoadingContacts: state.contacts.load,
+  contacts: phonebookSelectors.getAllContacts(state),
+  isLoadingContacts: phonebookSelectors.getLoadingContacts(state),
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -34,7 +34,7 @@
     "deploy": "gh-pages -d build",
     "predeploy": "npm run build",
     "prepare": "husky install",
-    "api": "json-server --port 4747 --delay 300 --watch db.json"
+    "api": "json-server --port 4747 --delay 500 --watch db.json"
   },
   "eslintConfig": {
     "extends": [

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import operations from 'redux/phonebook-operations';
 import actions from 'redux/phonebook-actions';
 import styles from './PhonebookContacts.module.css';
+import phonebookSelectors from 'redux/phonebook-selectors';
 
 const PhonebookContacts = ({
   contacts,
@@ -47,17 +48,9 @@ const PhonebookContacts = ({
   </div>
 );
 
-const filteredContatcs = (allContacts, filter) => {
-  const normalizedFilter = filter.toLowerCase();
-
-  return allContacts.filter(({ name }) =>
-    name.toLowerCase().includes(normalizedFilter)
-  );
-};
-
-const mapStateToProps = ({ contacts: { items, filter } }) => ({
-  contacts: filteredContatcs(items, filter),
-  filter: filter,
+const mapStateToProps = state => ({
+  contacts: phonebookSelectors.getFilteredContacts(state),
+  filter: phonebookSelectors.getFilter(state),
 });
 
 const mapDispatchToProps = dispatch => ({
